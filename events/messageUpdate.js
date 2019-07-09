@@ -8,6 +8,25 @@ module.exports = class {
     }
 
     async run (oldMessage, newMessage) {
-        this.client.emit('message', newMessage);
+      
+
+    if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
+
+    
+       
+        var log = newMessage.guild.channels.find('name', "logs");
+        if (log != null)
+
+        var embed = new Discord.RichEmbed()
+          .setAuthor(newMessage.author.username, newMessage.author.displayAvatarURL)
+          .setDescription("Messages logs \n `EDIT`")
+          .addField("Message edited by", newMessage.author, true)
+          .addField("Last message",oldMessage.cleanContent, false)
+          .addField("New message:", newMessage.cleanContent)
+          .setTimestamp()
+            log.sendMessage(embed);
+           
     }
+
+});
 };
