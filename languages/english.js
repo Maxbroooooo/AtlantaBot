@@ -1202,6 +1202,17 @@ module.exports = class {
 			// Content
 			PURGE_CONFIRMATION: (members) => `${e.warn} | ${members} members will be kicked out! To confirm, type \`confirm\`!`,
 			PURGE_SUCCESS: (members) => `${e.success} | ${members} membres kicked !`,
+			
+			ADDBAN_HEADING: `${user} is banned.`,
+			UNBAN_HEADING: `${user} is unbanned. `,
+			
+			MESSAGE_DELETE: [
+				"Message deleted by: ",
+				"Message:"0,
+				"Delete message logs!
+				]
+			
+			
 
         }
     }
