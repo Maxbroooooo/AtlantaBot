@@ -1202,8 +1202,15 @@ module.exports = class {
 			
 			
 			//BAN
-			ADDBAN_HEADING: `Le joueur ${user} est banni.`,
-			UNBAN_HEADING: `Le joueur ${user} est debanni. `,
+			ADDBAN_HEADING: `${user} est banni`,
+			UNBAN_HEADING: `${user} est unban `,
+			
+			MESSAGE_DELETE: [
+				"Message supprimé par: ",
+				"Message:"0,
+				"Log des messages supprimés!
+				]
+			,
 
         }
     }
