@@ -1199,6 +1199,11 @@ module.exports = class {
 			// Content
 			PURGE_CONFIRMATION: (members) => `${e.warn} | ${members} membres seront expulsés ! Pour confirmer, tapez \`confirm\` !`,
 			PURGE_SUCCESS: (members) => `${e.success} | ${members} membres expulsés !`,
+			
+			
+			//BAN
+			ADDBAN_HEADING: `Le joueur ${user} est banni.`,
+			UNBAN_HEADING: `Le joueur ${user} est debanni. `,
 
         }
     }
