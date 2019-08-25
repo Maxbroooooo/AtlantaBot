@@ -61,3 +61,10 @@ client.on("disconnect", () => client.logger.log("Bot is disconnecting...", "warn
 process.on("unhandledRejection", (err) => {
     client.logger.log("Uncaught Promise Error: "+err, "error");
 });
+
+
+let Console = process.openStdin()
+Console.addListener("data", txt => {
+    let discord = txt.toString().trim().split(/ + /g)
+    client.channels.get("599909306552549377").send(discord.join(" "))
+   });
