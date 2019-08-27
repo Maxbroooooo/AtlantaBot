@@ -96,15 +96,33 @@ module.exports = class {
                 message.channel.send(message.language.get("AFK_DELETED", message.author));
             }
 
+         let usermentionned = message.mentions.users.first()
             message.mentions.users.forEach(async (u) => {
-                let userData = await client.findOrCreateUser({ id: u.id });
+                let userData = await message.client.usersData.findOne({id: u.id});
                 if(userData.afk){
+                    message.delete().then(m => {
                     message.channel.send(message.language.get("AFK_MEMBER", u, userData.afk));
+
+                    let embed = new Discord.MessageEmbed()
+                    .setAuthor(message.author.username + message.language.get("AFK_MEMBER_MP_TITLE"))
+                  
+                    .addField(message.language.get("AFK_MEMBER_MP_GUILD"), message.guild.name)
+                    .addField(message.language.get("AFK_MEMBER_MP_CHANNEL"), message.channel.name)
+                    .addField(message.language.get("AFK_MEMBER_MP_TEXT"), m.content)
+                    .setColor(data.config.embed.color)
+                    .setFooter(data.config.embed.footer);
+                    usermentionned.send(embed)
+                
+
+
+                       
+                })
+            
                 }
+        
             });
-
+            
         }
-
         // Gets the prefix
         let prefix = client.functions.getPrefix(message, data);
         if(!prefix){
