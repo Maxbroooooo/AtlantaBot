@@ -247,7 +247,10 @@ module.exports = class {
 			// Others
 			AFK_DELETED: `${e.warn} | Your AFK has just been deleted!`,
 			AFK_MEMBER: (user, reason) => `${e.warn} | **${user.tag}** is currently AFK for:\n\`\`\`${reason}\`\`\``,
-
+			AFK_MEMBER_MP_TITLE: ` mentionned you`,
+			AFK_MEMBER_MP_GUILD: `On:`,
+			AFK_MEMBER_MP_CHANNEL: `In:`,
+			AFK_MEMBER_MP_TEXT:`Message content:`,
 			/* REMINDME COMMAND */
 
 			// Utils
