@@ -96,14 +96,21 @@ module.exports = class {
                 message.channel.send(message.language.get("AFK_DELETED", message.author));
             }
 
+        let mentionnez = message.mentions.users.first()
             message.mentions.users.forEach(async (u) => {
-                let userData = await client.findOrCreateUser({ id: u.id });
+                let userData = await message.client.usersData.findOne({id: u.id});
                 if(userData.afk){
+                    message.delete().then(m => {
                     message.channel.send(message.language.get("AFK_MEMBER", u, userData.afk));
+                   mentionnez.send(message.author.username + " mentionned you on "+message.guild.name+ " in "+ message.channel.name + "\n"+m.content)
+                })
+            
                 }
+        
             });
-
+            
         }
+
 
         // Gets the prefix
         let prefix = client.functions.getPrefix(message, data);
